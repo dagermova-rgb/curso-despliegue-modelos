@@ -17,7 +17,7 @@ ENV PYTHONUNBUFFERED=1 \
 COPY requirements.txt .
 
 #Instalar las dependencias del proyecto
-RUN pip install --no-cache-dir -r requirements.txt
+RUN RUN apt-get update && apt-get install -y --no-install-recommends \ libgomp1 \ && rm -rf /var/lib/apt/lists/*
 
 #Copiar el resto de los archivos del proyecto
 COPY . .
