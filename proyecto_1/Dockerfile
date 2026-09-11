@@ -26,4 +26,4 @@ COPY . .
 EXPOSE 8080
 
 #Comando para ejecutar el servicio
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT}"] #comando para ejecutar el servicio, sh sirve para ejecutar el comando en un shell, -c indica que se va a ejecutar un comando, y uvicorn main:app --host 0.0.0.0 --port ${PORT} sirve para ejecutar el servicio, main es el nombre del archivo donde se encuentra la aplicación, app es el nombre de la aplicación, --host
+CMD uvicorn main:app --host 0.0.0.0 --port $PORT

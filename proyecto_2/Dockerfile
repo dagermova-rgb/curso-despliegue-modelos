@@ -26,4 +26,4 @@ COPY . .
 EXPOSE 8080
 
 #Comando para ejecutar el servicio
-CMD uvicorn main:app --host 0.0.0.0 --port $PORT
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8080}"]
