@@ -17,7 +17,9 @@ ENV PYTHONUNBUFFERED=1 \
 COPY requirements.txt .
 
 #Instalar las dependencias del proyecto
-RUN RUN apt-get update && apt-get install -y --no-install-recommends \ libgomp1 \ && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+ libgomp1 \
+  && rm -rf /var/lib/apt/lists/*
 
 #Copiar el resto de los archivos del proyecto
 COPY . .
@@ -26,4 +28,4 @@ COPY . .
 EXPOSE 8080
 
 #Comando para ejecutar el servicio
-CMD uvicorn main:app --host 0.0.0.0 --port $PORT
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8080}"]
