@@ -24,6 +24,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #Copiar el resto de los archivos del proyecto
 COPY . .
 
+#Instalar las dependencias del proyecto
+RUN pip install --no-cache-dir -r requirements.txt
+
 #documentar el puerto que se va a exponer
 EXPOSE 8080
 
