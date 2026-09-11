@@ -6,11 +6,11 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException #sirve para crear la api y manejar errores
 from pydantic import BaseModel, Field  #yield marca el punto en el que termina la lógica de inicio y FastAPI puede comenzar a atender solicitudes. Cuando la aplicación se vaya a cerrar, la ejecución continúa después del yield.
 
-from proyecto_2.inferencia import pronosticar
-from proyecto_2.esquema import solicitudPronostico
+from inferencia import pronosticar
+from esquema import solicitudPronostico
 
 #Ruta del bundle que contiene el modelo entrenado
-NOMBRE_BUNDLE = "proyecto_2\modelo_demanda.joblib"
+NOMBRE_BUNDLE = "modelo_demanda.joblib"
 
 estado_servicio = {"bundle": None}
 
